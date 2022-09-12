@@ -1,0 +1,28 @@
+{% extends "index.html" %}
+{% block content %}
+<table class="table table-striped table-sm" id="cacheData">
+    <thead>
+        <tr>
+            <th scope="col">STT</th>
+            <th scope="col">Key</th>
+            <th scope="col">TTL</th>
+            <th scope="col">Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for x in data %}
+        <tr>
+            <td>{{ x.order }}</td>
+            <td>{{ x.key }}</td>
+            <td>{{ x.ttl }}</td>
+            <td> 
+                <a href="/delete/{{ x.key }}" class="btn btn-outline-danger btn-sm" onclick="deleteCache()">
+                    Delete
+                </a>
+            </td>
+        </tr>
+        {% endfor %}
+    </tbody>
+    <script src="/static/js/cache.js"></script>
+</table>
+{% endblock %}
